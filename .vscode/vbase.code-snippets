@@ -1,0 +1,25 @@
+{
+	"create a new vue": {
+		"scope": "",  
+		"prefix": "vbse",
+		"body": [
+				"<template>",
+						"\t<div>",
+						"\n",
+						"\t</div>",
+				"</template>",
+				"\n",
+				"<script>",
+				"\texport default {",
+					"\n",
+					"\n",
+				"}",
+				"</script>",
+				"\n",
+				"<style lang=\"scss\" scoped>",
+				"\n",
+				"</style>"
+		],
+		"description": "快速创建vue组件架构"
+}
+}
