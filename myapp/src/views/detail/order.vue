@@ -16,10 +16,10 @@
       </div>
       <div class="prod-box" ref="prodBox">
         <ul>
-          <li class="cate-list" v-for="(item, index) in prodList" :key="index">
+          <li class="cate-list" v-for="(item, typeIndex) in prodList" :key="typeIndex">
             <div class="cate-title">{{ item.name }}</div>
             <ul>
-              <li class="prod-list" v-for="prod in item.content" :key="prod.id">
+              <li class="prod-list" v-for="(prod,index) in item.content" :key="prod.id">
                 <div class="prod-img-box">
                   <img :src="prod.img" alt="" />
                 </div>
@@ -30,6 +30,9 @@
                     <span>赞 {{ prod.up }}3</span>
                   </div>
                   <div class="price">￥{{ prod.price }}</div>
+                </div>
+                <div class="add-cart-container">
+                  <addCart :type="typeIndex" :index="index"></addCart>
                 </div>
               </li>
             </ul>
@@ -44,6 +47,7 @@
 <script>
 import { mapState } from 'vuex'
 import BScroll from '@better-scroll/core'
+import addCart from './../../components/add-cart'
 export default {
   data() {
     return {
@@ -54,6 +58,9 @@ export default {
       menuList: [],
       scrollY: 0,
     }
+  },
+  components:{
+    addCart
   },
   computed: {
     ...mapState('product', ['prodList']),
@@ -67,6 +74,7 @@ export default {
       this.prodScroll = new BScroll('.prod-box', {
         bounce: false,
         probeType: 3,
+        click: true
       })
       // 获取右侧分类垂直方向位置
       this.getPosY()
@@ -156,6 +164,7 @@ export default {
         line-height: 0.72rem;
       }
       .prod-list {
+        position: relative;
         display: flex;
         margin-bottom: 0.4rem;
         .prod-img-box {
@@ -168,6 +177,7 @@ export default {
         }
         .prod-info {
           flex: 1;
+          min-width: 0;
           .name {
             font-size: 0.32rem;
             color: #333;
@@ -190,6 +200,11 @@ export default {
             color: #f00;
             font-size: 0.36rem;
           }
+        }
+        .add-cart-container {
+          position: absolute;
+          right: 0;
+          bottom: 0;
         }
       }
     }
