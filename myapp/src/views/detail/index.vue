@@ -1,3 +1,4 @@
+// 详情页组件
 <template>
   <div class="scrollBox">
     <div>
@@ -6,7 +7,9 @@
         <van-tab title="菜单">
           <order></order>
         </van-tab>
-        <van-tab title="评价">内容 2</van-tab>
+        <van-tab title="评价">
+          <comment></comment>
+        </van-tab>
         <van-tab title="商家">内容 3</van-tab>
       </van-tabs>
     </div>
@@ -19,6 +22,7 @@ import sellerHeader from './sellerHeader'
 import order from './order'
 import BScroll from '@better-scroll/core'
 import cart from './cart'
+import comment from './../comment'
 export default {
   data() {
     return {
@@ -30,7 +34,8 @@ export default {
   components: {
     sellerHeader,
     order,
-    cart
+    cart,
+    comment
   },
   methods: {
     // 获取商家详情
