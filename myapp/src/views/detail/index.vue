@@ -10,7 +10,9 @@
         <van-tab title="评价">
           <comment></comment>
         </van-tab>
-        <van-tab title="商家">内容 3</van-tab>
+        <van-tab title="商家">
+          <seller :seller="seller"></seller>
+        </van-tab>
       </van-tabs>
     </div>
     <cart :seller="seller"></cart>
@@ -23,6 +25,7 @@ import order from './order'
 import BScroll from '@better-scroll/core'
 import cart from './cart'
 import comment from './../comment'
+import seller from './../seller'
 export default {
   data() {
     return {
@@ -35,7 +38,8 @@ export default {
     sellerHeader,
     order,
     cart,
-    comment
+    comment,
+    seller
   },
   methods: {
     // 获取商家详情

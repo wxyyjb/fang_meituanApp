@@ -1,7 +1,7 @@
 // 处理ios系统1px边框2倍问题
-@mixin border-fix($color:#000,$raduis:0) {
+@mixin border-fix($color: #000, $raduis: 0) {
   position: relative;
-  &::after{
+  &::after {
     position: absolute;
     content: '';
     left: 0;
@@ -16,12 +16,25 @@
 }
 @mixin border-top-1px($color) {
   position: relative;
-  &::after{
+  &::after {
     position: absolute;
     display: block;
     content: '';
     left: 0;
     top: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+    transform: scaleY(0.5);
+  }
+}
+@mixin border-buttom-1px($color) {
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    left: 0;
+    bottom: 0;
     width: 100%;
     border-top: 1px solid $color;
     transform: scaleY(0.5);
